@@ -1,194 +1,310 @@
+
 <!DOCTYPE html>
 <html lang="sr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101010">
-<title>MMA Arena Balkan | Baza boraca</title>
+<meta name="theme-color" content="#0b0b0d">
+<meta name="description" content="MMA Arena Balkan — MMA vesti, UFC događaji, analize, borci i prognoze.">
+<title>MMA ARENA BALKAN | Sve o MMA</title>
 <style>
-:root{--red:#ed2638;--bg:#101010;--panel:#1b1b1b;--muted:#aaa}
+:root{--red:#ed1735;--bg:#0b0b0d;--panel:#151519;--line:#29292f;--muted:#a4a4ae;--white:#fff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
-header{background:#080808;border-bottom:2px solid var(--red);padding:19px 16px}
-.wrap{max-width:1100px;margin:auto}
-.logo{font-size:25px;font-weight:900;font-style:italic}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.topline{height:4px;background:linear-gradient(90deg,#850014,var(--red),#ff687a)}
+header{position:sticky;top:0;z-index:10;background:#101013f5;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.head{max-width:1180px;margin:auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{font-weight:1000;font-size:19px;letter-spacing:-.7px}
 .logo span{color:var(--red)}
-.tag{color:#aaa;font-size:12px;margin-top:5px}
-nav{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px}
-nav a{color:#fff;text-decoration:none;font-size:14px}
+.logo small{display:block;font-size:9px;letter-spacing:3px;color:var(--muted)}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{font-size:12px;font-weight:bold;color:#ddd}
 nav a:hover{color:var(--red)}
-.hero{padding:32px 16px 24px;background:linear-gradient(110deg,#31090e,#151515 70%)}
-.hero h1{font-size:clamp(27px,6vw,46px);margin:0 0 10px}
-.hero p{color:#ddd;line-height:1.6;max-width:650px}
-.kicker{color:#ff6875;font-size:12px;font-weight:bold;letter-spacing:2px}
-main{padding:24px 16px 45px}
-.tools{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0 22px}
-input,select{width:100%;padding:13px;background:#202020;border:1px solid #444;border-radius:8px;color:white;font-size:15px}
-h2{font-size:23px;margin:0}
-.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.count{color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px}
-.card{background:var(--panel);border:1px solid #303030;border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s}
-.card:hover{transform:translateY(-3px);border-color:var(--red)}
-.photo{height:190px;background:#292929;position:relative;overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.photo .number{position:absolute;left:9px;top:9px;background:var(--red);padding:5px 8px;border-radius:5px;font-weight:bold;font-size:12px}
-.info{padding:13px}
-.name{font-size:17px;font-weight:800;line-height:1.2}
-.nickname{color:#ff6875;font-size:12px;margin-top:5px;min-height:15px}
-.division{display:inline-block;background:#303030;color:#ddd;border-radius:4px;padding:5px 7px;font-size:11px;margin:10px 0}
-.record{font-size:20px;font-weight:900}
-.record small{font-size:11px;color:#aaa;font-weight:normal}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:12px}
-.stat{background:#242424;border-radius:5px;padding:7px 4px;text-align:center}
-.stat b{display:block;font-size:13px}
-.stat span{display:block;color:#aaa;font-size:9px;margin-top:4px}
-.empty{padding:28px;text-align:center;color:#aaa;grid-column:1/-1}
-.note{color:#999;font-size:12px;line-height:1.6;margin-top:22px}
-footer{border-top:1px solid #333;padding:24px 16px;color:#999;font-size:12px;text-align:center}
-footer strong{color:#fff}
-@media(min-width:650px){.tools{grid-template-columns:2fr 1fr}.photo{height:240px}.grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+.hero{min-height:430px;display:flex;align-items:center;background:linear-gradient(90deg,#080809 0%,#080809ed 38%,#08080945 100%),url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1800&q=85') center 40%/cover}
+.hero-inner{max-width:1180px;width:100%;margin:auto;padding:60px 22px}
+.eyebrow{color:var(--red);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-size:clamp(40px,7vw,78px);line-height:.99;max-width:720px;margin:14px 0;font-weight:1000;letter-spacing:-2px}
+.hero h1 span{color:var(--red)}
+.hero p{color:#d0d0d5;max-width:530px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.btn{display:inline-block;border:0;border-radius:4px;background:var(--red);color:white;padding:12px 17px;font-size:12px;font-weight:900}
+.btn:hover{filter:brightness(1.18)}
+.btn.secondary{background:#202025;border:1px solid #414149}
+.ticker{background:var(--red);padding:8px 15px;font-size:11px;font-weight:900;letter-spacing:1px;text-align:center}
+.wrap{max-width:1180px;margin:auto;padding:35px 20px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:19px}
+.section-head h2{margin:0;font-size:27px;line-height:1.2}
+.section-head p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.rule{width:45px;height:4px;background:var(--red);margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.card-body{padding:17px}
+.card h3{margin:5px 0 8px;font-size:19px;line-height:1.3}
+.card p{color:#c0c0c8;font-size:13px;margin:8px 0}
+.cover{height:190px;background:#202025 center/cover no-repeat;position:relative}
+.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#151519,transparent 55%)}
+.label{font-size:10px;color:#ff6378;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
+.muted{color:var(--muted);font-size:12px}
+.feature{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:stretch}
+.feature-image{min-height:300px;border-radius:7px;background:url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=85') center/cover}
+.feature-copy{display:flex;flex-direction:column;justify-content:center;padding:20px}
+.feature-copy h3{font-size:30px;line-height:1.2;margin:10px 0}
+.fighter-image{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 30%,#393039,#18181d 65%,#101013);overflow:hidden}
+.fighter-image img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.fighter-fallback{font-size:60px;font-weight:1000;color:#fff}
+.fighter-meta{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:12px;color:var(--muted);font-size:11px}
+.pill{display:inline-block;border:1px solid #45454d;border-radius:3px;padding:3px 7px;font-size:10px;color:#ddd}
+.event{display:flex;align-items:center;gap:15px;padding:16px;border-bottom:1px solid var(--line)}
+.event:last-child{border-bottom:0}
+.event-date{width:65px;min-width:65px;text-align:center;background:#242429;padding:8px 3px;border-radius:4px}
+.event-date strong{display:block;color:var(--red);font-size:20px}
+.event-date span{font-size:10px;color:var(--muted)}
+.event-info{flex:1}
+.event-info h3{font-size:15px;margin:0}
+.event-info p{font-size:12px;color:var(--muted);margin:4px 0 0}
+.event-tag{font-size:10px;color:#ff6378;font-weight:bold}
+.two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:20px}
+.panel h3{margin:0 0 8px}
+.select-fight{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin:20px 0}
+.contender{background:#222228;border:1px solid #3c3c45;border-radius:6px;padding:14px 5px;text-align:center}
+.contender strong{display:block;font-size:13px}
+.vs{color:var(--red);font-weight:1000;font-size:18px}
+.vote-results{margin-top:16px}
+.bar{height:7px;background:#36363d;border-radius:10px;overflow:hidden;margin:5px 0 12px}
+.bar span{display:block;height:100%;width:0;background:var(--red);transition:width .3s}
+.small-button{border:1px solid #484850;background:#242429;color:white;border-radius:4px;padding:9px 11px;font-size:12px;font-weight:bold}
+.small-button:hover{border-color:var(--red)}
+input,textarea{width:100%;background:#0e0e11;border:1px solid #37373f;color:white;border-radius:4px;padding:12px;margin:6px 0 12px}
+textarea{resize:vertical}
+input:focus,textarea:focus{outline:1px solid var(--red)}
+.comment{border-top:1px solid var(--line);padding:12px 0}
+.comment strong{color:#ff667b;font-size:13px}
+.comment p{font-size:13px;color:#ddd;overflow-wrap:anywhere;margin:5px 0}
+.search{max-width:290px}
+.search input{margin:0}
+footer{background:#101013;border-top:1px solid var(--line);padding:30px 20px;text-align:center}
+footer p{color:var(--muted);font-size:12px}
+footer strong{letter-spacing:2px}
+.notice{font-size:11px;color:var(--muted);margin-top:12px}
+.empty{padding:18px;color:var(--muted);font-size:13px}
+@media(max-width:760px){
+ .head{align-items:flex-start;flex-direction:column;gap:10px}
+ nav{gap:12px}
+ nav a{font-size:11px}
+ .hero{min-height:380px}
+ .hero-inner{padding:45px 20px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .cover{height:135px}
+ .card-body{padding:12px}
+ .card h3{font-size:16px}
+ .feature,.two-col{grid-template-columns:1fr}
+ .feature-image{min-height:210px}
+ .section-head{align-items:flex-start;flex-direction:column}
+ .search{max-width:100%;width:100%}
+}
+@media(max-width:390px){.grid{grid-template-columns:1fr}.cover{height:190px}}
 </style>
 </head>
 <body>
+<div class="topline"></div>
 <header>
-  <div class="wrap">
-    <div class="logo">MMA ARENA <span>BALKAN</span></div>
-    <div class="tag">TVOJ IZVOR ZA MMA • BORCI • STATISTIKE • UFC</div>
-    <nav>
-      <a href="#pocetna">Početna</a>
-      <a href="#borci">Baza boraca</a>
-      <a href="#info">O projektu</a>
-    </nav>
-  </div>
+ <div class="head">
+  <a class="logo" href="#pocetna">MMA <span>ARENA</span> BALKAN<small>SVET BORILAČKIH SPORTOVA</small></a>
+  <nav>
+   <a href="#vesti">VESTI</a><a href="#borci">BORCI</a><a href="#dogadjaji">UFC DOGAĐAJI</a><a href="#prognoze">PROGNOZE</a><a href="#diskusija">DISKUSIJA</a>
+  </nav>
+ </div>
 </header>
+<div class="ticker">MMA VESTI • UFC DOGAĐAJI • ANALIZE • PREDVIĐANJA • MMA ARENA BALKAN</div>
 
 <section class="hero" id="pocetna">
-  <div class="wrap">
-    <div class="kicker">ULTIMATE FIGHTING CHAMPIONSHIP</div>
-    <h1>UPOZNAJ MMA ELITU.</h1>
-    <p>Pregledaj profile boraca, njihove rezultate i težinske kategorije. Pronađi svog favorita u bazi MMA Arena Balkan.</p>
+ <div class="hero-inner">
+  <div class="eyebrow">Nezavisni MMA portal</div>
+  <h1>OVDE ŽIVI<br><span>MMA.</span></h1>
+  <p>Najveće borbe, najjači borci i mišljenja MMA fanova sa Balkana. Prati sport, analiziraj mečeve i izaberi svog pobednika.</p>
+  <div class="actions">
+   <a class="btn" href="#vesti">ISTRAŽI ARENU ↘</a>
+   <a class="btn secondary" href="#prognoze">POGODI POBEDNIKA</a>
   </div>
+ </div>
 </section>
 
-<main class="wrap" id="borci">
-  <div class="section-head">
-    <h2>Baza boraca</h2>
-    <span class="count" id="count">Učitavanje...</span>
+<main>
+<section class="wrap" id="vesti">
+ <div class="section-head"><div><div class="rule"></div><h2>U centru pažnje</h2><p>Priče, analize i teme za MMA fanove.</p></div></div>
+ <div class="feature card">
+  <div class="feature-image" role="img" aria-label="MMA borilište"></div>
+  <div class="feature-copy">
+   <span class="label">MMA ARENA • UVODNIK</span>
+   <h3>Dobrodošao u svet najvećih borbi.</h3>
+   <p>Ovde pričamo o tehnikama, taktikama, rivalstvima, šampionima i mečevima koji su obeležili MMA istoriju.</p>
+   <p>Ko je najbolji svih vremena? Ko ima najbolji grappling? Ko bi pobedio u hipotetičkom supermeču? Iznesi argumente i uključi se u diskusiju.</p>
+   <a class="btn" href="#diskusija">UKLJUČI SE U DISKUSIJU</a>
   </div>
-  <div class="tools">
-    <input id="search" type="search" placeholder="🔎 Pretraži ime borca..." aria-label="Pretraži borce">
-    <select id="division" aria-label="Filtriraj po kategoriji">
-      <option value="all">Sve kategorije</option>
-      <option value="Flyweight">Flyweight</option>
-      <option value="Bantamweight">Bantamweight</option>
-      <option value="Featherweight">Featherweight</option>
-      <option value="Lightweight">Lightweight</option>
-      <option value="Welterweight">Welterweight</option>
-      <option value="Middleweight">Middleweight</option>
-      <option value="Light Heavyweight">Light Heavyweight</option>
-      <option value="Heavyweight">Heavyweight</option>
-    </select>
+ </div>
+ <div class="grid" style="margin-top:18px">
+  <article class="card"><div class="cover" style="background-image:url('https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=800&q=80')"></div><div class="card-body"><span class="label">TAKTIKA</span><h3>Grappling protiv udarača</h3><p>Kako rušenja, kontrola i rad uz ogradu mogu da promene tok borbe?</p><span class="muted">Analiza za fanove</span></div></article>
+  <article class="card"><div class="cover" style="background-image:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80')"></div><div class="card-body"><span class="label">TRENING</span><h3>Šta čini kompletnog borca?</h3><p>Udarci, rvanje, kondicija, odbrana i donošenje odluka pod pritiskom.</p><span class="muted">MMA osnove</span></div></article>
+  <article class="card"><div class="cover" style="background-image:url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=80')"></div><div class="card-body"><span class="label">DEBATA</span><h3>Kako ocenjujemo najboljeg?</h3><p>Nasleđe, kvalitet protivnika, titule i dominacija u kategoriji.</p><a href="#diskusija" class="muted">Iznesi svoje mišljenje →</a></div></article>
+ </div>
+ <p class="notice">Ovo su uvodne teme, a ne aktuelne vesti. Nove rezultate i vesti dodaj tek nakon provere pouzdanih izvora.</p>
+</section>
+
+<section class="wrap" id="borci">
+ <div class="section-head">
+  <div><div class="rule"></div><h2>Upoznaj borce</h2><p>Pretraži profile i pročitaj osnovne informacije.</p></div>
+  <div class="search"><input id="fighterSearch" placeholder="Pretraži borca..." aria-label="Pretraži borca"></div>
+ </div>
+ <div class="grid" id="fighterGrid">
+  <article class="card fighter" data-name="islam makhachev">
+   <div class="fighter-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Islam_Makhachev.png" alt="Islam Makhachev" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=fighter-fallback>IM</div>'"></div>
+   <div class="card-body"><span class="label">RUSIJA</span><h3>Islam Makhachev</h3><p>Poznat po vrhunskom rvanju, kontroli u parteru i smirenom taktičkom pristupu.</p><span class="pill">Sambo • Grappling</span><div class="fighter-meta"><span>Stil: MMA</span><span>Profil borca</span></div></div>
+  </article>
+  <article class="card fighter" data-name="alexander volkanovski volk">
+   <div class="fighter-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Alexander_Volkanovski.png" alt="Alexander Volkanovski" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=fighter-fallback>AV</div>'"></div>
+   <div class="card-body"><span class="label">AUSTRALIJA</span><h3>Alexander Volkanovski</h3><p>Poznat po kretanju, pritisku, promenama nivoa i odličnom prilagođavanju protivniku.</p><span class="pill">Udarci • Rvanje</span><div class="fighter-meta"><span>Stil: MMA</span><span>Profil borca</span></div></div>
+  </article>
+  <article class="card fighter" data-name="jon jones bones">
+   <div class="fighter-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jon_Jones.png" alt="Jon Jones" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=fighter-fallback>JJ</div>'"></div>
+   <div class="card-body"><span class="label">SAD</span><h3>Jon Jones</h3><p>Poznat po kreativnom izboru tehnika, radu na distanci i raznovrsnom borilačkom arsenalu.</p><span class="pill">Udarci • Klinč • Rvanje</span><div class="fighter-meta"><span>Stil: MMA</span><span>Profil borca</span></div></div>
+  </article>
+  <article class="card fighter" data-name="khabib nurmagomedov">
+   <div class="fighter-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Khabib_Nurmagomedov.png" alt="Khabib Nurmagomedov" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=fighter-fallback>KN</div>'"></div>
+   <div class="card-body"><span class="label">RUSIJA</span><h3>Khabib Nurmagomedov</h3><p>Penzionisani borac poznat po pritisku, lancu rušenja i kontroli protivnika.</p><span class="pill">Rvanje • Sambo</span><div class="fighter-meta"><span>Status: Penzionisan</span><span>Profil borca</span></div></div>
+  </article>
+  <article class="card fighter" data-name="max holloway blessed">
+   <div class="fighter-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Max_Holloway.png" alt="Max Holloway" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=fighter-fallback>MH</div>'"></div>
+   <div class="card-body"><span class="label">HAWAJI • SAD</span><h3>Max Holloway</h3><p>Udarac po udarac gradi pritisak, ima visok tempo i poznat je po kombinacijama.</p><span class="pill">Boks • Kretanje</span><div class="fighter-meta"><span>Stil: MMA</span><span>Profil borca</span></div></div>
+  </article>
+  <article class="card fighter" data-name="alex pereira poatan">
+   <div class="fighter-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Alex_Pereira_UFC.png" alt="Alex Pereira" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=fighter-fallback>AP</div>'"></div>
+   <div class="card-body"><span class="label">BRAZIL</span><h3>Alex Pereira</h3><p>Elitni udarač sa iskustvom u kik-boksu i snažnim levim krošeom.</p><span class="pill">Kik-boks • Udarci</span><div class="fighter-meta"><span>Stil: MMA</span><span>Profil borca</span></div></div>
+  </article>
+ </div>
+ <p class="notice">Slike se učitavaju sa Wikimedia Commons. Ako neka ne postoji ili se ne učita, kartica prikazuje inicijale. Proveri podatke o borcima pre objavljivanja detaljne statistike.</p>
+</section>
+
+<section class="wrap" id="dogadjaji">
+ <div class="section-head"><div><div class="rule"></div><h2>UFC kalendar</h2><p>Organizuj predstojeće priredbe i arhivu završenih događaja.</p></div></div>
+ <div class="two-col">
+  <div class="panel">
+   <h3>📅 Predstojeći događaji</h3>
+   <div class="event"><div class="event-date"><strong>UFC</strong><span>KALENDAR</span></div><div class="event-info"><h3>Naredna potvrđena priredba</h3><p>Dodaj datum, lokaciju i glavnu borbu nakon provere zvaničnog rasporeda.</p><span class="event-tag">ČEKA AŽURIRANJE</span></div></div>
+   <div class="event"><div class="event-date"><strong>UFC</strong><span>KALENDAR</span></div><div class="event-info"><h3>Sledeći Fight Night</h3><p>Unesi potvrđeni datum i glavne borbe.</p><span class="event-tag">ČEKA AŽURIRANJE</span></div></div>
+   <p class="notice">Datumi se ne ažuriraju automatski. Proveri zvanični UFC raspored pre nego što ih objaviš.</p>
   </div>
-  <div class="grid" id="fighters"></div>
-  <p class="note">Napomena: statistike u ovom prototipu su informativne i mogu zastareti. Fotografije se učitavaju sa spoljašnjih izvora; ako neka ne radi, proveri internet vezu.</p>
+  <div class="panel">
+   <h3>🗂️ Istorijski događaji</h3>
+   <div class="event"><div class="event-date"><strong>UFC</strong><span>2024</span></div><div class="event-info"><h3>UFC 300</h3><p>Las Vegas • Istorijska jubilejska priredba</p><span class="event-tag">ZAVRŠENO</span></div></div>
+   <div class="event"><div class="event-date"><strong>UFC</strong><span>2023</span></div><div class="event-info"><h3>UFC 295</h3><p>New York • Jon Jones se povukao zbog povrede; priredba je dobila novu glavnu borbu.</p><span class="event-tag">ZAVRŠENO</span></div></div>
+   <div class="event"><div class="event-date"><strong>UFC</strong><span>2021</span></div><div class="event-info"><h3>UFC 254</h3><p>Abu Dabi • Khabib Nurmagomedov protiv Justina Gaethjea</p><span class="event-tag">ZAVRŠENO</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="wrap" id="prognoze">
+ <div class="section-head"><div><div class="rule"></div><h2>Pogodi pobednika</h2><p>Izaberi favorita u zamišljenom meču i uporedi glasove na svom uređaju.</p></div></div>
+ <div class="two-col">
+  <div class="panel">
+   <span class="label">FAN DEBATA • HIPOTETIČKI MEČ</span>
+   <h3 style="margin-top:8px">Ko bi pobedio u ovom zamišljenom meču?</h3>
+   <div class="select-fight">
+    <button class="contender" onclick="vote('Islam Makhachev')"><strong>Islam Makhachev</strong><span class="muted">Izaberi borca</span></button>
+    <span class="vs">VS</span>
+    <button class="contender" onclick="vote('Alexander Volkanovski')"><strong>Alexander Volkanovski</strong><span class="muted">Izaberi borca</span></button>
+   </div>
+   <div class="vote-results">
+    <p>Islam Makhachev — <strong id="islamVotes">0</strong> glasova</p><div class="bar"><span id="islamBar"></span></div>
+    <p>Alexander Volkanovski — <strong id="alexVotes">0</strong> glasova</p><div class="bar"><span id="alexBar"></span></div>
+   </div>
+   <p class="notice" id="voteMessage">Izaberi svog favorita. Glasovi se čuvaju samo tokom otvorene stranice i nisu zajednički za sve posetioce.</p>
+  </div>
+  <div class="panel">
+   <h3>💡 Kako da napraviš dobru prognozu?</h3>
+   <p>Razmotri nekoliko stvari pre nego što izabereš pobednika:</p>
+   <p>• Udarci i odbrana od udaraca</p>
+   <p>• Rvanje, kontrola i odbrana od rušenja</p>
+   <p>• Kondicija i tempo kroz runde</p>
+   <p>• Kvalitet protivnika i skoriji nastupi</p>
+   <p class="notice">Ovo je sportska anketa među fanovima, a ne klađenje.</p>
+  </div>
+ </div>
+</section>
+
+<section class="wrap" id="diskusija">
+ <div class="section-head"><div><div class="rule"></div><h2>MMA diskusija</h2><p>Obrazloži mišljenje i predloži temu za sledeću analizu.</p></div></div>
+ <div class="two-col">
+  <div class="panel">
+   <h3>Ostavi komentar</h3>
+   <form id="commentForm">
+    <label for="nickname" class="muted">Nadimak</label>
+    <input id="nickname" maxlength="30" placeholder="Npr. MMAfan99">
+    <label for="commentText" class="muted">Tvoj komentar</label>
+    <textarea id="commentText" maxlength="600" rows="4" placeholder="Ko je tvoj omiljeni borac i zašto?"></textarea>
+    <button class="btn" type="submit">OBJAVI KOMENTAR</button>
+   </form>
+   <div id="commentList"><p class="muted">Još nema komentara. Budi prvi koji će pokrenuti debatu!</p></div>
+   <p class="notice">Komentari su privremeni i vidljivi samo u ovoj otvorenoj sesiji. Ne unosi lične podatke.</p>
+  </div>
+  <div class="panel">
+   <h3>🔥 Teme za debatu</h3>
+   <div class="comment"><strong>1. Najbolji svih vremena?</strong><p>Jon Jones, Georges St-Pierre, Anderson Silva ili neko drugi? Obrazloži svoj izbor.</p></div>
+   <div class="comment"><strong>2. Najbolji stil borbe?</strong><p>Da li je presudnije elitno rvanje, kik-boks ili sposobnost da se sve poveže?</p></div>
+   <div class="comment"><strong>3. Najuzbudljiviji borac?</strong><p>Ko te najviše tera da ustaneš sa stolice dok gledaš borbu?</p></div>
+   <div class="comment"><strong>4. Najveće rivalstvo?</strong><p>Predloži rivalstvo koje zaslužuje detaljnu analizu na portalu.</p></div>
+  </div>
+ </div>
+</section>
 </main>
 
-<section class="wrap" id="info" style="padding:0 16px 35px">
-  <h2>O MMA Arena Balkan</h2>
-  <p style="color:#aaa;line-height:1.7">Nezavisni projekat za ljubitelje MMA sporta sa Balkana. Podaci i rezultati služe za informisanje; sajt nije zvanično povezan sa UFC-om.</p>
-</section>
-
-<footer><strong>MMA ARENA BALKAN</strong><br>Nezavisni MMA projekat • Napravljen za fanove borilačkih sportova</footer>
+<footer>
+ <div class="logo">MMA <span>ARENA</span> BALKAN</div>
+ <p>Vesti. Borci. Analize. Tvoja MMA zajednica.</p>
+ <p>Nezavisni fan-sajt, nije zvanično povezan sa UFC-om ili borcima.</p>
+ <p>Poštuj druge fanove. Raspravljaj argumentima.</p>
+</footer>
 
 <script>
-const fighters = [
- {name:"Islam Makhachev",nick:"",division:"Welterweight",record:"28-1",height:"178 cm",reach:"179 cm",style:"Sambo",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Islam_Makhachev.png"},
- {name:"Alex Pereira",nick:"Poatan",division:"Light Heavyweight",record:"12-3",height:"193 cm",reach:"201 cm",style:"Kickboxing",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Alex_Pereira_UFC_307.png"},
- {name:"Jon Jones",nick:"Bones",division:"Heavyweight",record:"28-1",height:"193 cm",reach:"215 cm",style:"Wrestling",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Jon_Jones_UFC_285.png"},
- {name:"Alexander Volkanovski",nick:"The Great",division:"Featherweight",record:"26-4",height:"168 cm",reach:"182 cm",style:"MMA",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Alexander_Volkanovski_UFC_290.png"},
- {name:"Khabib Nurmagomedov",nick:"The Eagle",division:"Lightweight",record:"29-0",height:"178 cm",reach:"178 cm",style:"Sambo",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Khabib_Nurmagomedov_UFC_229.jpg"},
- {name:"Tom Aspinall",nick:"",division:"Heavyweight",record:"15-3",height:"196 cm",reach:"198 cm",style:"Boxing / BJJ",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Tom_Aspinall_UFC.jpg"},
- {name:"Aleksandar Rakić",nick:"Rocket",division:"Light Heavyweight",record:"14-5",height:"193 cm",reach:"196 cm",style:"Kickboxing",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Aleksandar_Rakic_UFC.jpg"},
- {name:"Max Holloway",nick:"Blessed",division:"Lightweight",record:"26-8",height:"180 cm",reach:"175 cm",style:"Boxing",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Max_Holloway_UFC_300.png"},
- {name:"Dricus du Plessis",nick:"Stillknocks",division:"Middleweight",record:"23-2",height:"183 cm",reach:"193 cm",style:"MMA",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Dricus_du_Plessis_UFC_305.jpg"},
- {name:"Merab Dvalishvili",nick:"The Machine",division:"Bantamweight",record:"19-4",height:"168 cm",reach:"173 cm",style:"Wrestling",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Merab_Dvalishvili_UFC.jpg"},
- {name:"Alexandre Pantoja",nick:"The Cannibal",division:"Flyweight",record:"28-5",height:"165 cm",reach:"170 cm",style:"BJJ",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Alexandre_Pantoja_UFC.jpg"},
- {name:"Leon Edwards",nick:"Rocky",division:"Welterweight",record:"22-5",height:"188 cm",reach:"188 cm",style:"MMA",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Leon_Edwards_UFC.jpg"}
-];
-
-const grid = document.getElementById("fighters");
-const search = document.getElementById("search");
-const division = document.getElementById("division");
-const count = document.getElementById("count");
-
-function render(){
- const q = search.value.trim().toLowerCase();
- const cat = division.value;
- const list = fighters.filter(f =>
-   (f.name.toLowerCase().includes(q) || f.nick.toLowerCase().includes(q)) &&
-   (cat === "all" || f.division === cat)
- );
- count.textContent = list.length + " boraca";
- grid.innerHTML = "";
- if(!list.length){
-   grid.innerHTML = '<div class="empty">Nema boraca koji odgovaraju pretrazi.</div>';
-   return;
- }
- list.forEach((f,i)=>{
-   const card = document.createElement("article");
-   card.className = "card";
-   const photo = document.createElement("div");
-   photo.className = "photo";
-   const img = document.createElement("img");
-   img.src = f.img;
-   img.alt = f.name;
-   img.loading = "lazy";
-   img.onerror = () => {
-     photo.innerHTML = '<div style="display:grid;place-items:center;height:100%;font-size:42px;font-weight:900;color:#ed2638">'+f.name.split(" ").map(x=>x[0]).join("")+'</div>';
-   };
-   photo.appendChild(img);
-   const num = document.createElement("span");
-   num.className = "number";
-   num.textContent = "#" + String(i+1).padStart(2,"0");
-   photo.appendChild(num);
-   const info = document.createElement("div");
-   info.className = "info";
-   const name = document.createElement("div");
-   name.className = "name";
-   name.textContent = f.name;
-   const nick = document.createElement("div");
-   nick.className = "nickname";
-   nick.textContent = f.nick ? '"' + f.nick + '"' : "MMA borac";
-   const cat = document.createElement("div");
-   cat.className = "division";
-   cat.textContent = f.division;
-   const record = document.createElement("div");
-   record.className = "record";
-   record.textContent = f.record;
-   const small = document.createElement("small");
-   small.textContent = " POBEDE–PORAZI";
-   record.appendChild(small);
-   const stats = document.createElement("div");
-   stats.className = "stats";
-   [[f.height,"VISINA"],[f.reach,"DOMET"],[f.style,"STIL"]].forEach(s=>{
-     const box = document.createElement("div");
-     box.className = "stat";
-     const b = document.createElement("b");
-     b.textContent = s[0];
-     const span = document.createElement("span");
-     span.textContent = s[1];
-     box.append(b,span);
-     stats.appendChild(box);
-   });
-   info.append(name,nick,cat,record,stats);
-   card.append(photo,info);
-   grid.appendChild(card);
+const search=document.getElementById('fighterSearch');
+search.addEventListener('input',function(){
+ const q=this.value.toLowerCase().trim();
+ document.querySelectorAll('.fighter').forEach(card=>{
+  card.style.display=card.dataset.name.includes(q)?'':'none';
  });
+});
+let voteCounts={"Islam Makhachev":0,"Alexander Volkanovski":0};
+function vote(name){
+ voteCounts[name]++;
+ const total=voteCounts["Islam Makhachev"]+voteCounts["Alexander Volkanovski"];
+ const i=voteCounts["Islam Makhachev"],a=voteCounts["Alexander Volkanovski"];
+ document.getElementById('islamVotes').textContent=i;
+ document.getElementById('alexVotes').textContent=a;
+ document.getElementById('islamBar').style.width=(total?i/total*100:0)+'%';
+ document.getElementById('alexBar').style.width=(total?a/total*100:0)+'%';
+ document.getElementById('voteMessage').textContent='Tvoj izbor: '+name+'. Ukupno glasova u ovoj sesiji: '+total+'.';
 }
-search.addEventListener("input",render);
-division.addEventListener("change",render);
-render();
+document.getElementById('commentForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const nickname=document.getElementById('nickname').value.trim()||'MMA fan';
+ const message=document.getElementById('commentText').value.trim();
+ if(!message){alert('Napiši komentar pre objavljivanja.');return;}
+ const list=document.getElementById('commentList');
+ if(list.querySelector('.muted')&&list.children.length===1)list.innerHTML='';
+ const item=document.createElement('div');
+ item.className='comment';
+ const name=document.createElement('strong');
+ name.textContent=nickname;
+ const text=document.createElement('p');
+ text.textContent=message;
+ item.append(name,text);
+ list.prepend(item);
+ document.getElementById('commentText').value='';
+});
 </script>
 </body>
 </html>
