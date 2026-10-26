@@ -1,1 +1,129 @@
 
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMA Arena Balkan</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:#f5f5f5;font-family:Arial,sans-serif}
+header{background:#c90024;padding:25px 16px;text-align:center}
+header h1{margin:0;font-size:30px;font-weight:900}
+header p{margin:8px 0 0}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;background:#1b1b1b;padding:13px}
+nav a{color:white;text-decoration:none;font-weight:bold;font-size:14px}
+.hero{padding:35px 20px;text-align:center;background:linear-gradient(135deg,#26000a,#151515)}
+.hero h2{font-size:29px;margin:0 0 12px}
+.hero p{color:#ccc;line-height:1.5}
+main{max-width:950px;margin:auto;padding:18px}
+section{margin:24px 0}
+h2.section-title{border-left:5px solid #e0002b;padding-left:12px}
+.card{background:#1c1c1c;padding:17px;border-radius:10px;margin:12px 0;border:1px solid #333}
+.card h3{margin-top:0}
+.tag{color:#ff405d;font-size:12px;font-weight:bold}
+button{background:#d40028;color:white;border:0;padding:11px 15px;border-radius:6px;font-weight:bold;cursor:pointer;margin:4px}
+button:hover{background:#ff1744}
+input,textarea{width:100%;padding:12px;background:#292929;color:white;border:1px solid #555;border-radius:6px;margin:7px 0;font:inherit}
+.small{font-size:13px;color:#aaa}
+footer{text-align:center;padding:25px;background:#1b1b1b;color:#aaa}
+</style>
+</head>
+<body>
+<header>
+<h1>🥊 MMA ARENA BALKAN</h1>
+<p>Tvoj svet MMA borbi, vesti i analiza</p>
+</header>
+<nav>
+<a href="#vesti">Vesti</a>
+<a href="#dogadjaji">Događaji</a>
+<a href="#prognoze">Prognoze</a>
+<a href="#borci">Borci</a>
+<a href="#diskusija">Diskusija</a>
+</nav>
+<div class="hero">
+<h2>OVDE ŽIVI MMA!</h2>
+<p>Vesti, analize, predviđanja i najveće borilačke priče.<br>Glas fanova se čuje u Areni!</p>
+</div>
+<main>
+<section id="vesti">
+<h2 class="section-title">📰 MMA vesti i analize</h2>
+<div class="card">
+<span class="tag">ANALIZA</span>
+<h3>Dobrodošli u MMA Arena Balkan!</h3>
+<p>Ovo je mesto za ljubitelje MMA sporta sa Balkana. Ovde ćemo objavljivati analize mečeva, mišljenja i priče o najboljim borcima.</p>
+</div>
+<div class="card">
+<span class="tag">TVOJE MIŠLJENJE</span>
+<h3>Ko je trenutno najbolji MMA borac?</h3>
+<p>Da li je to Islam Makhachev, Jon Jones ili neko treći? Iznesi svoje argumente u diskusiji!</p>
+</div>
+</section>
+<section id="dogadjaji">
+<h2 class="section-title">📅 MMA događaji</h2>
+<div class="card">
+<h3>UFC i ostali MMA događaji</h3>
+<p>Ovde ćemo dodavati datume, glavne borbe i rezultate narednih događaja.</p>
+<p class="small">Raspored još nije automatski ažuriran — proveri zvanične objave organizatora.</p>
+</div>
+</section>
+<section id="prognoze">
+<h2 class="section-title">🎯 Pogodi pobednika</h2>
+<div class="card">
+<h3>Islam Makhachev vs. protivnik po izboru</h3>
+<p>Probna anketa sajta: ko je tvoj favorit u ovom zamišljenom duelu?</p>
+<button onclick="vote('Islam Makhachev')">Islam Makhachev</button>
+<button onclick="vote('Protivnik')">Protivnik</button>
+<p id="result">Izaberi svog favorita!</p>
+<p class="small">Glasanje je demonstracija na ovom uređaju; glasovi se ne dele između posetilaca.</p>
+</div>
+</section>
+<section id="borci">
+<h2 class="section-title">🏆 Borci</h2>
+<div class="card"><h3>Islam Makhachev</h3><p>Ruski MMA borac, poznat po vrhunskom grapplingu i kontroli u parteru.</p></div>
+<div class="card"><h3>Jon Jones</h3><p>Američki MMA borac, poznat po raznovrsnom arsenalu tehnika i borilačkom IQ-u.</p></div>
+<div class="card"><h3>Alexander Volkanovski</h3><p>Australijski MMA borac, poznat po tempu, kretanju i taktičkim prilagođavanjima.</p></div>
+</section>
+<section id="diskusija">
+<h2 class="section-title">💬 MMA diskusija</h2>
+<div class="card">
+<p>Ostavi svoje mišljenje ili predlog za narednu analizu:</p>
+<input id="name" placeholder="Tvoj nadimak">
+<textarea id="comment" rows="3" placeholder="Napiši komentar..."></textarea>
+<button onclick="addComment()">Objavi komentar</button>
+<div id="comments"></div>
+<p class="small">Komentari su probni i prikazuju se samo dok je ova stranica otvorena. Ne unosi privatne podatke.</p>
+</div>
+</section>
+</main>
+<footer>
+<p><strong>MMA ARENA BALKAN</strong></p>
+<p>Nezavisni MMA fan-sajt. Nije zvanično povezan sa UFC-om.</p>
+</footer>
+<script>
+let votes={};
+function vote(name){
+votes[name]=(votes[name]||0)+1;
+let total=Object.values(votes).reduce((a,b)=>a+b,0);
+document.getElementById('result').textContent=
+'Islam Makhachev: '+(votes['Islam Makhachev']||0)+' | Protivnik: '+(votes['Protivnik']||0)+' | Ukupno glasova na ovom uređaju: '+total;
+}
+function addComment(){
+let name=document.getElementById('name').value.trim()||'MMA fan';
+let comment=document.getElementById('comment').value.trim();
+if(!comment){alert('Prvo napiši komentar!');return;}
+let box=document.createElement('div');
+box.className='card';
+let title=document.createElement('strong');
+title.textContent=name;
+let text=document.createElement('p');
+text.textContent=comment;
+box.appendChild(title);
+box.appendChild(text);
+document.getElementById('comments').prepend(box);
+document.getElementById('comment').value='';
+}
+</script>
+</body>
+</html>
+
